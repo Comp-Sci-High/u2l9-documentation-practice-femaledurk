@@ -5,11 +5,14 @@
 // 2. The NASA Astronomy Picture of the Day (APOD) API, which provides a daily picture or video related to astronomy.
 
 async function fetchAstronauts(requestURL) {
-        
+    let response = await fetch("http://api.open-notify.org/astros.json")  
+    let data = await response.json()
+    console.log (data.people[7].name)
+    return data
 }
 
 // CALL your function here
-
+fetchAstronauts()
 // TASK 1: Fetch Data from the "People in Space" API
 
 // 1. Find the "People in Space" API: http://open-notify.org/
@@ -30,7 +33,11 @@ async function fetchAstronauts(requestURL) {
 // 6. Modify the console log to only show the URL of today's astronomy picture. 
 
 async function fetchPictures(requestURL) {
-        
+   let response = await fetch("https://api.nasa.gov/planetary/apod?api_key=j83T3nZgiDqhVRIfkwqP2fMZOuw6ZgnLTxBR06hX")   
+   let data2 = await response.json()
+   console.log(data2.url)
+   return data2
 }
 
 // CALL your function here
+fetchPictures()
